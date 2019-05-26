@@ -7,10 +7,10 @@ def main():
     with open('blacklist.json', 'r') as a_file:
         blacklist = json.load(a_file)
 
-    wheels = tuple([
+    wheels = tuple(sorted([
         wheel
         for wheel in glob('*.whl')
-        if wheel not in blacklist])
+        if wheel not in blacklist]))
     a_uuid = uuid5(
         UUID('84240474-7d53-11e9-af91-74d02b7a0098'),
         repr(wheels))
